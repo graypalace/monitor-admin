@@ -10,6 +10,8 @@ import Order from '@/views/Order.vue'
 import OrderDetail from '@/views/OrderDetail.vue'
 import Guest from '@/views/Guest.vue'
 import Account from '@/views/Account.vue'
+import ShowView from '@/views/3DShowView'
+
 
 const router = createRouter({
   history: createWebHashHistory(), // hash 模式
@@ -90,7 +92,12 @@ const router = createRouter({
       path: '/account',
       name: 'account',
       component: Account
-    }
+    },
+    {
+      path: '/showView',
+      name: 'showView',
+      component: ShowView
+    },
   ]
 })
 

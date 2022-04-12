@@ -4,7 +4,7 @@
       <el-card class="order-item">
         <template #header>
           <div class="card-header">
-            <span>今日订单数</span>
+            <span>监控元素</span>
           </div>
         </template>
         <div class="item">1888</div>
@@ -12,7 +12,7 @@
       <el-card class="order-item">
         <template #header>
           <div class="card-header">
-            <span>今日日活</span>
+            <span>监控元素健康值</span>
           </div>
         </template>
         <div class="item">36271</div>
@@ -20,13 +20,61 @@
       <el-card class="order-item">
         <template #header>
           <div class="card-header">
-            <span>转化率</span>
+            <span>警告状态(Warning)统计</span>
+          </div>
+        </template>
+        <div class="item">20%</div>
+      </el-card>
+      <el-card class="order-item">
+        <template #header>
+          <div class="card-header">
+            <span>危急状态(Critical)统计</span>
           </div>
         </template>
         <div class="item">20%</div>
       </el-card>
     </div>
-    <div id="zoom"></div>
+    <div>
+      <el-row :gutter="20">
+        <el-col :span="12"><div class="grid-content bg-purple" />
+          <div id="zoom"></div>
+        </el-col>
+        <el-col :span="12"><div class="grid-content bg-purple" />
+          告警数量对比
+        </el-col>
+      </el-row>
+    </div>
+    <div>
+      <el-row :gutter="20">
+        <el-col :span="12"><div class="grid-content bg-purple" />
+          节点告警数量
+        </el-col>
+        <el-col :span="12"><div class="grid-content bg-purple" />
+          接口告警数量
+        </el-col>
+      </el-row>
+    </div>
+    <div>
+      <el-row :gutter="20">
+        <el-col :span="12"><div class="grid-content bg-purple" />
+          节点状态统计
+        </el-col>
+        <el-col :span="12"><div class="grid-content bg-purple" />
+          接口状态统计
+        </el-col>
+      </el-row>
+    </div>
+    <div>
+      <el-row :gutter="20">
+        <el-col :span="12"><div class="grid-content bg-purple" />
+          事件统计
+        </el-col>
+        <el-col :span="12"><div class="grid-content bg-purple" />
+          日志统计
+        </el-col>
+      </el-row>
+    </div>
+
   </el-card>
 </template>
 
@@ -142,7 +190,7 @@ export default {
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option)
-      } 
+      }
     })
     onUnmounted(() => {
       myChart.dispose()

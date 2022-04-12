@@ -2,10 +2,10 @@
   <div class="login-body">
     <div class="login-container">
       <div class="head">
-        <img class="logo" src="https://s.weituibao.com/1582958061265/mlogo.png" />
+        <img class="logo" src="" />
         <div class="name">
-          <div class="title">新蜂商城</div>
-          <div class="tips">Vue3.0 后台管理系统</div>
+          <div class="title">Monitor-plus</div>
+          <div class="tips">Monitor-plus网络监控管理系统</div>
         </div>
       </div>
       <el-form label-position="top" :rules="rules" :model="ruleForm" ref="loginForm" class="login-form">

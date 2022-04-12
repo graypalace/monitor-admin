@@ -5,56 +5,186 @@
         <div class="head">
           <div>
             <img src="//s.weituibao.com/1582958061265/mlogo.png" alt="logo">
-            <span>vue3 admin</span>
+            <span>Monitor-plus</span>
           </div>
         </div>
         <div class="line" />
         <el-menu
+            active-text-color="#ffd04b"
             background-color="#222832"
             text-color="#fff"
             :router="true"
             :default-openeds="defaultOpen"
             :default-active='currentPath'
+            @open="handleOpen"
+            @close="handleClose"
+            default-active="2"
         >
           <el-sub-menu index="1">
             <template #title>
-              <span>Dashboard</span>
+              <span>仪表盘(Dashboard)</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="/"><i class="el-icon-odometer" />首页</el-menu-item>
-              <el-menu-item index="/add"><i class="el-icon-plus" />添加商品</el-menu-item>
+              <el-menu-item index="/"><i class="el-icon-odometer" />汇总展示</el-menu-item>
+              <el-menu-item index="/showView"><i class="el-icon-plus" />大屏展示</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
           <el-sub-menu index="2">
             <template #title>
-              <span>首页配置</span>
+              <span>资源管理</span>
             </template>
+            <el-sub-menu index="2-1">
+              <template #title>资源信息</template>
+              <el-menu-item index="2-1-1"><i class="el-icon-lock" />资源列表</el-menu-item>
+              <el-menu-item index="2-1-2"><i class="el-icon-lock" />添加节点</el-menu-item>
+            </el-sub-menu>
             <el-menu-item-group>
-              <el-menu-item index="/swiper"><i class="el-icon-picture" />轮播图配置</el-menu-item>
-              <el-menu-item index="/hot"><i class="el-icon-star-on" />热销商品配置</el-menu-item>
-              <el-menu-item index="/new"><i class="el-icon-sell" />新品上线配置</el-menu-item>
-              <el-menu-item index="/recommend"><i class="el-icon-thumb" />为你推荐配置</el-menu-item>
+              <el-menu-item index="2-2"><i class="el-icon-lock" />资源发现</el-menu-item>
             </el-menu-item-group>
-          </el-sub-menu>
+            <el-menu-item-group>
+              <el-menu-item index="2-3"><i class="el-icon-lock" />维护计划</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="2-4"><i class="el-icon-lock" />属性标签</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="2-5"><i class="el-icon-lock" />模板管理</el-menu-item>
+            </el-menu-item-group>
+         </el-sub-menu>
           <el-sub-menu index="3">
             <template #title>
               <span>模块管理</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="/category"><i class="el-icon-menu" />分类管理</el-menu-item>
-              <el-menu-item index="/good"><i class="el-icon-s-goods" />商品管理</el-menu-item>
-              <el-menu-item index="/guest"><i class="el-icon-user-solid" />会员管理</el-menu-item>
-              <el-menu-item index="/order"><i class="el-icon-s-order" />订单管理</el-menu-item>
+              <el-menu-item index="3-1"><i class="el-icon-lock" />模块管理</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
           <el-sub-menu index="4">
             <template #title>
+              <span>告警管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="4-1"><i class="el-icon-lock" />活跃告警</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="4-2"><i class="el-icon-lock" />告警设置</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="4-3"><i class="el-icon-lock" />告警动作</el-menu-item>
+            </el-menu-item-group>
+          </el-sub-menu>
+          <el-sub-menu index="5">
+            <template #title>
+              <span>报表管理</span>
+            </template>
+            <el-sub-menu index="5-1">
+              <template #title>报表管理</template>
+              <el-menu-item index="5-1-1"><i class="el-icon-lock" />报表汇总</el-menu-item>
+              <el-menu-item index="5-1-2"><i class="el-icon-lock" />报表设置</el-menu-item>
+            </el-sub-menu>
+            <el-sub-menu index="5-2">
+              <template #title>策略管理</template>
+              <el-menu-item index="5-2-1"><i class="el-icon-lock" />策略汇总</el-menu-item>
+              <el-menu-item index="5-2-2"><i class="el-icon-lock" />策略设置</el-menu-item>
+            </el-sub-menu>
+          </el-sub-menu>
+          <el-sub-menu index="6">
+            <template #title>
+              <span>拓扑管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="6-1"><i class="el-icon-lock" />网络拓扑图</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="6-2"><i class="el-icon-lock" />自定义图标</el-menu-item>
+            </el-menu-item-group>
+          </el-sub-menu>
+          <el-sub-menu index="7">
+            <template #title>
+              <span>网络配置管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="7-1"><i class="el-icon-lock" />网络配置管理</el-menu-item>
+            </el-menu-item-group>
+          </el-sub-menu>
+          <el-sub-menu index="8">
+            <template #title>
+              <span>日志管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="8-1"><i class="el-icon-lock" />日志汇总</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="8-2"><i class="el-icon-lock" />日志分析</el-menu-item>
+            </el-menu-item-group>
+          </el-sub-menu>
+          <el-sub-menu index="9">
+            <template #title>
+              <span>用户管理</span>
+            </template>
+            <el-sub-menu index="9-1">
+              <template #title>账号管理</template>
+              <el-menu-item index="9-1-1"><i class="el-icon-lock" />账号信息</el-menu-item>
+              <el-menu-item index="9-1-2"><i class="el-icon-lock" />创建账号</el-menu-item>
+            </el-sub-menu>
+            <el-sub-menu index="9-2">
+              <template #title>角色管理</template>
+              <el-menu-item index="9-2-1"><i class="el-icon-lock" />角色信息</el-menu-item>
+              <el-menu-item index="9-2-2"><i class="el-icon-lock" />创建角色</el-menu-item>
+            </el-sub-menu>
+            <el-sub-menu index="9-3">
+              <template #title>分组管理</template>
+              <el-menu-item index="9-3-1"><i class="el-icon-lock" />分组信息</el-menu-item>
+              <el-menu-item index="9-3-2"><i class="el-icon-lock" />创建分组</el-menu-item>
+            </el-sub-menu>
+          </el-sub-menu>
+          <el-sub-menu index="10">
+            <template #title>
               <span>系统管理</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="/account"><i class="el-icon-lock" />修改密码</el-menu-item>
+              <el-menu-item index="10-1"><i class="el-icon-lock" />我的部署环境</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="10-2"><i class="el-icon-lock" />许可证管理</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="10-3"><i class="el-icon-lock" />轮询引擎管理</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="10-4"><i class="el-icon-lock" />凭证管理</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="10-5"><i class="el-icon-lock" />事件管理</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="10-6"><i class="el-icon-lock" />密码管理</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
+          <!-- demo测试-->
+          <el-sub-menu index="11">
+            <template #title>
+              <span>资源管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="/swiper"><i class="el-icon-picture el-icon-lock" />轮播图配置</el-menu-item>
+              <el-menu-item index="/hot"><i class="el-icon-star-on el-icon-lock" />热销商品配置</el-menu-item>
+              <el-menu-item index="/new"><i class="el-icon-sell el-icon-lock" />新品上线配置</el-menu-item>
+              <el-menu-item index="/recommend"><i class="el-icon-thumb el-icon-lock" />为你推荐配置</el-menu-item>
+            </el-menu-item-group>
+          </el-sub-menu>
+          <el-sub-menu index="12">
+            <template #title>
+              <span>模块管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="/category"><i class="el-icon-menu el-icon-lock" />分类管理</el-menu-item>
+              <el-menu-item index="/good"><i class="el-icon-s-goods el-icon-lock" />商品管理</el-menu-item>
+              <el-menu-item index="/guest"><i class="el-icon-user-solid el-icon-lock" />会员管理</el-menu-item>
+              <el-menu-item index="/order"><i class="el-icon-s-order el-icon-lock" />订单管理</el-menu-item>
+            </el-menu-item-group>
+          </el-sub-menu>
+
         </el-menu>
       </el-aside>
       <el-container class="content">
@@ -88,7 +218,7 @@ export default {
     const router = useRouter()
     const state = reactive({
       showMenu: true,
-      defaultOpen: ['1', '2', '3', '4'],
+      defaultOpen: ['1'],
       currentPath: '/',
     })
 

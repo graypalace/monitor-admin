@@ -30,7 +30,8 @@ export const pathMap = {
   order: '订单管理',
   order_detail: '订单详情',
   guest: '会员管理',
-  account: '修改账户'
+  account: '修改账户',
+  showView:'3D大屏展示'
 }
 
 // 单张图片上传
