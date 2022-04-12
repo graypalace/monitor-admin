@@ -1,15 +1,15 @@
 <template>
   <el-card class="introduce">
     <div class="order">
-      <el-card class="order-item">
+      <el-card class="order-item card-kb1" >
         <template #header>
           <div class="card-header">
-            <span>监控元素</span>
+            <span type="success">监控元素</span>
           </div>
         </template>
         <div class="item">1888</div>
       </el-card>
-      <el-card class="order-item">
+      <el-card class="order-item card-kb2">
         <template #header>
           <div class="card-header">
             <span>监控元素健康值</span>
@@ -17,7 +17,7 @@
         </template>
         <div class="item">36271</div>
       </el-card>
-      <el-card class="order-item">
+      <el-card class="order-item card-kb3">
         <template #header>
           <div class="card-header">
             <span>警告状态(Warning)统计</span>
@@ -25,7 +25,7 @@
         </template>
         <div class="item">20%</div>
       </el-card>
-      <el-card class="order-item">
+      <el-card class="order-item card-kb4">
         <template #header>
           <div class="card-header">
             <span>危急状态(Critical)统计</span>
@@ -76,6 +76,10 @@
     </div>
 
   </el-card>
+  <template>
+    Scroll down to see the bottom-right button.
+    <el-backtop :right="100" :bottom="100" />
+  </template>
 </template>
 
 <script>
@@ -213,5 +217,39 @@ export default {
   }
   #zoom {
     min-height: 300px;
+  }
+  #alertmunber{
+
+  }
+  #nodealertmunbervs{
+
+  }
+  #interfacemunber{
+
+  }
+  #nodestatusmunber{
+
+  }
+  #intfacestatusmunber{
+
+  }
+  #logsmunber{
+
+  }
+  #auditmunber{
+
+  }
+  .card-kb1 {
+    background-color: #17a2b8;
+
+  }
+  .card-kb2 {
+    background-color: #28a745;
+  }
+  .card-kb3 {
+    background-color: #ffc107;
+  }
+  .card-kb4 {
+    background-color: #dc3545;
   }
 </style>

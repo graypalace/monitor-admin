@@ -295,6 +295,7 @@ export default {
   overflow: auto;
   padding: 10px;
 }
+
 </style>
 
 <style>
